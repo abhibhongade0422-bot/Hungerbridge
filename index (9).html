@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HungerBridge — Bridging Surplus to Shelters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div id="page-landing" class="page active">
+  <nav class="navbar">
+    <div class="logo">🍱 HungerBridge</div>
+    <div class="nav-links">
+      <a href="#" onclick="showPage('page-landing')">Home</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#impact">Impact</a>
+    </div>
+    <button class="btn-primary" onclick="showPage('page-login')">Get Started</button>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🌍 Real-Time Food Rescue Platform</div>
+      <h1>Every Meal<br><span class="accent">Matters.</span></h1>
+      <p class="hero-sub">Connecting restaurants, wedding halls & canteens with nearby shelters — before food goes to waste. Live listings. 2-hour pickup windows. Zero hunger.</p>
+      <div class="hero-cta">
+        <button class="btn-primary large" onclick="showPage('page-login')">Join as Donor</button>
+        <button class="btn-outline large" onclick="showPage('page-login')">I'm an NGO / Volunteer</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">2,840</span><span>Meals Saved Today</span></div>
+        <div class="stat"><span class="stat-num">134</span><span>Active Donors</span></div>
+        <div class="stat"><span class="stat-num">56</span><span>NGOs Connected</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="food-card-float card1">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=120&h=80&fit=crop" alt="pizza">
+        <div>
+          <strong>Wedding Banquet</strong>
+          <span class="countdown" data-seconds="4200">1h 10m left</span>
+        </div>
+      </div>
+      <div class="food-card-float card2">
+        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=120&h=80&fit=crop" alt="food">
+        <div>
+          <strong>Hotel Canteen</strong>
+          <span class="countdown" data-seconds="2700">45m left</span>
+        </div>
+      </div>
+      <div class="food-card-float card3">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=120&h=80&fit=crop" alt="meals">
+        <div>
+          <strong>Restaurant Surplus</strong>
+          <span class="countdown" data-seconds="5400">1h 30m left</span>
+        </div>
+      </div>
+      <div class="hero-big-img">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=500&h=500&fit=crop" alt="food">
+        <div class="hero-img-badge">🔴 Live Now — 12 listings active</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="how-section">
+    <h2>How HungerBridge Works</h2>
+    <p class="section-sub">Three roles. One mission. Zero waste.</p>
+    <div class="how-grid">
+      <div class="how-card donor-card">
+        <div class="how-icon">🏨</div>
+        <h3>Donors</h3>
+        <p>Hotels, restaurants & wedding halls post surplus meals with a 2-hour countdown. Build reputation with every listing.</p>
+        <ul>
+          <li>📸 Photo + quantity upload</li>
+          <li>⏱️ Auto-expiry at 2 hours</li>
+          <li>⭐ Reputation score tracking</li>
+          <li>📊 Monthly impact reports</li>
+        </ul>
+        <button class="btn-role" onclick="loginAs('donor')">Join as Donor →</button>
+      </div>
+      <div class="how-card ngo-card">
+        <div class="how-icon">🤝</div>
+        <h3>NGOs</h3>
+        <p>Browse real-time listings, claim food slots instantly, and coordinate pickups — all from a single dashboard.</p>
+        <ul>
+          <li>🗺️ Map-based listing view</li>
+          <li>✅ One-tap claim system</li>
+          <li>📦 Track active pickups</li>
+          <li>📈 Meals received analytics</li>
+        </ul>
+        <button class="btn-role" onclick="loginAs('ngo')">Join as NGO →</button>
+      </div>
+      <div class="how-card volunteer-card">
+        <div class="how-icon">🚴</div>
+        <h3>Volunteers</h3>
+        <p>Accept dispatch requests, navigate to pickup points, and ensure last-mile delivery to shelters on time.</p>
+        <ul>
+          <li>📍 Live dispatch notifications</li>
+          <li>🗺️ Turn-by-turn routing</li>
+          <li>✅ Delivery confirmation</li>
+          <li>🏆 Volunteer leaderboard</li>
+        </ul>
+        <button class="btn-role" onclick="loginAs('volunteer')">Join as Volunteer →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="impact-section">
+    <div class="impact-inner">
+      <div class="impact-text">
+        <h2>Our Community Impact</h2>
+        <p>Every listing saved is a meal on someone's plate. Together, our community has redirected thousands of meals from waste to warmth.</p>
+        <div class="impact-bars">
+          <div class="impact-bar-item">
+            <span>Meals Rescued</span>
+            <div class="bar"><div class="bar-fill" style="width:82%"></div></div>
+            <span>82,400+</span>
+          </div>
+          <div class="impact-bar-item">
+            <span>Active Cities</span>
+            <div class="bar"><div class="bar-fill" style="width:45%"></div></div>
+            <span>12 Cities</span>
+          </div>
+          <div class="impact-bar-item">
+            <span>CO₂ Saved (kg)</span>
+            <div class="bar"><div class="bar-fill" style="width:67%"></div></div>
+            <span>41,200 kg</span>
+          </div>
+        </div>
+      </div>
+      <div class="impact-cards">
+        <div class="testimonial">
+          <img src="https://images.unsplash.com/photo-1546961342-ea5f60b193a4?w=60&h=60&fit=crop&crop=face" alt="NGO">
+          <div>
+            <strong>Sunita Rao</strong>
+            <span>Asha Foundation, Mumbai</span>
+            <p>"We now feed 80 extra people daily just from HungerBridge listings."</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Donor">
+          <div>
+            <strong>Ramesh Patel</strong>
+            <span>Hotel Grandeur, Pune</span>
+            <p>"Our kitchen waste dropped 70%. Feels great knowing meals reach shelters."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">🍱 HungerBridge</div>
+      <p>Bridging surplus to shelters, one meal at a time.</p>
+      <p class="footer-copy">© 2025 HungerBridge. Built with ❤️ for TGPDS-01 Hackathon.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- LOGIN PAGE -->
+<div id="page-login" class="page">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="auth-logo" onclick="showPage('page-landing')" style="cursor:pointer">🍱 HungerBridge</div>
+      <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=800&fit=crop" alt="food" class="auth-img">
+      <div class="auth-overlay-text">
+        <h2>"No meal should be wasted while someone goes hungry."</h2>
+        <p>Join 2,000+ donors, NGOs & volunteers today.</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+        <h2>Welcome Back</h2>
+        <p class="auth-sub">Login to continue your mission</p>
+
+        <div class="role-selector">
+          <button class="role-btn active" onclick="selectRole('donor', this)">🏨 Donor</button>
+          <button class="role-btn" onclick="selectRole('ngo', this)">🤝 NGO</button>
+          <button class="role-btn" onclick="selectRole('volunteer', this)">🚴 Volunteer</button>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="login-email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="login-pass" placeholder="••••••••">
+        </div>
+        <button class="btn-primary full" onclick="doLogin()">Login →</button>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <p class="auth-switch">Don't have an account? <a href="#" onclick="showPage('page-register')">Sign Up Free</a></p>
+
+        <div class="demo-logins">
+          <p>Quick Demo Login:</p>
+          <div class="demo-btns">
+            <button onclick="quickLogin('donor')">Demo Donor</button>
+            <button onclick="quickLogin('ngo')">Demo NGO</button>
+            <button onclick="quickLogin('volunteer')">Demo Volunteer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="page-register" class="page">
+  <div class="auth-container">
+    <div class="auth-left">
+      <div class="auth-logo" onclick="showPage('page-landing')" style="cursor:pointer">🍱 HungerBridge</div>
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=800&fit=crop" alt="restaurant" class="auth-img">
+      <div class="auth-overlay-text">
+        <h2>Every listing counts.</h2>
+        <p>Start saving meals from day one.</p>
+      </div>
+    </div>
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+        <h2>Create Account</h2>
+        <p class="auth-sub">Join as a Donor, NGO, or Volunteer</p>
+        <div class="role-selector">
+          <button class="role-btn active" onclick="selectRole('donor', this)">🏨 Donor</button>
+          <button class="role-btn" onclick="selectRole('ngo', this)">🤝 NGO</button>
+          <button class="role-btn" onclick="selectRole('volunteer', this)">🚴 Volunteer</button>
+        </div>
+        <div class="form-group">
+          <label>Full Name / Org Name</label>
+          <input type="text" placeholder="Hotel Grand / Asha NGO / Your Name">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX">
+        </div>
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" placeholder="Mumbai, Pune, etc.">
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create a strong password">
+        </div>
+        <button class="btn-primary full" onclick="doLogin()">Create Account →</button>
+        <p class="auth-switch">Already have an account? <a href="#" onclick="showPage('page-login')">Login</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DONOR DASHBOARD -->
+<div id="page-donor" class="page">
+  <div class="dashboard-layout">
+    <aside class="sidebar donor-sidebar">
+      <div class="sidebar-logo">🍱 HungerBridge</div>
+      <div class="sidebar-user">
+        <img src="https://images.unsplash.com/photo-1546961342-ea5f60b193a4?w=60&h=60&fit=crop" alt="user">
+        <div>
+          <strong>Hotel Grandeur</strong>
+          <span class="role-tag donor-tag">Donor</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" onclick="showDonorSection('dashboard', this)">🏠 Dashboard</a>
+        <a href="#" class="nav-item" onclick="showDonorSection('post', this)">➕ Post Surplus</a>
+        <a href="#" class="nav-item" onclick="showDonorSection('listings', this)">📋 My Listings</a>
+        <a href="#" class="nav-item" onclick="showDonorSection('reputation', this)">⭐ Reputation</a>
+        <a href="#" class="nav-item" onclick="showDonorSection('report', this)">📊 Impact Report</a>
+      </nav>
+      <button class="sidebar-logout" onclick="showPage('page-landing')">← Logout</button>
+    </aside>
+
+    <main class="dashboard-main">
+      <!-- DONOR: DASHBOARD -->
+      <div id="donor-dashboard" class="dash-section active-section">
+        <div class="dash-header">
+          <div>
+            <h1>Good Evening, Hotel Grandeur! 🌇</h1>
+            <p>You have <strong>3 active listings</strong> right now.</p>
+          </div>
+          <button class="btn-primary" onclick="showDonorSection('post', document.querySelector('.nav-item:nth-child(2))'))">+ Post Surplus</button>
+        </div>
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-icon">🍽️</div><div><span class="big-num">284</span><span>Total Meals Donated</span></div></div>
+          <div class="stat-card"><div class="stat-icon">⭐</div><div><span class="big-num">4.8</span><span>Reputation Score</span></div></div>
+          <div class="stat-card"><div class="stat-icon">✅</div><div><span class="big-num">42</span><span>Listings Posted</span></div></div>
+          <div class="stat-card"><div class="stat-icon">🤝</div><div><span class="big-num">18</span><span>NGOs Served</span></div></div>
+        </div>
+        <h3 class="section-title">Active Listings</h3>
+        <div class="listings-grid" id="donor-active-listings"></div>
+        <h3 class="section-title">Recent Activity</h3>
+        <div class="activity-list" id="donor-activity"></div>
+      </div>
+
+      <!-- DONOR: POST -->
+      <div id="donor-post" class="dash-section">
+        <h1>Post Surplus Food 📸</h1>
+        <p>Fill in the details below. Your listing will auto-expire in 2 hours.</p>
+        <div class="post-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Food Name / Description</label>
+              <input type="text" placeholder="e.g. Paneer Biryani, Veg Thali, Snack Boxes..." id="food-name">
+            </div>
+            <div class="form-group">
+              <label>Food Type</label>
+              <select id="food-type">
+                <option>Cooked Meal</option>
+                <option>Snacks / Bakery</option>
+                <option>Packed Food</option>
+                <option>Raw Ingredients</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Quantity (servings)</label>
+              <input type="number" placeholder="e.g. 50" id="food-qty" min="1">
+            </div>
+            <div class="form-group">
+              <label>Pickup Deadline</label>
+              <select id="food-deadline">
+                <option value="7200">2 hours (standard)</option>
+                <option value="3600">1 hour</option>
+                <option value="5400">1.5 hours</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Pickup Address</label>
+            <input type="text" placeholder="Full address for pickup" id="food-address">
+          </div>
+          <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea placeholder="Allergens, packaging info, contact instructions..." id="food-notes"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Food Photo (URL or upload)</label>
+            <div class="photo-upload" onclick="document.getElementById('photo-input').click()">
+              <span>📷 Click to add photo</span>
+              <input type="file" id="photo-input" accept="image/*" style="display:none" onchange="previewPhoto(this)">
+            </div>
+            <img id="photo-preview" style="display:none;max-height:150px;border-radius:12px;margin-top:8px;">
+          </div>
+          <button class="btn-primary large" onclick="postListing()">🚀 Post Listing (2hr countdown starts now)</button>
+        </div>
+      </div>
+
+      <!-- DONOR: LISTINGS -->
+      <div id="donor-listings" class="dash-section">
+        <h1>My Listings 📋</h1>
+        <div class="tabs">
+          <button class="tab active" onclick="filterListings('all', this)">All</button>
+          <button class="tab" onclick="filterListings('active', this)">Active</button>
+          <button class="tab" onclick="filterListings('claimed', this)">Claimed</button>
+          <button class="tab" onclick="filterListings('expired', this)">Expired</button>
+        </div>
+        <div class="listings-grid" id="all-listings-grid"></div>
+      </div>
+
+      <!-- DONOR: REPUTATION -->
+      <div id="donor-reputation" class="dash-section">
+        <h1>Reputation Score ⭐</h1>
+        <div class="reputation-card">
+          <div class="rep-score-big">4.8 <span>/ 5</span></div>
+          <div class="rep-stars">★★★★★</div>
+          <p>Gold Donor Badge 🏅</p>
+        </div>
+        <div class="rep-breakdown">
+          <div class="rep-item"><span>Timeliness</span><div class="rep-bar"><div style="width:92%"></div></div><span>92%</span></div>
+          <div class="rep-item"><span>Food Quality</span><div class="rep-bar"><div style="width:88%"></div></div><span>88%</span></div>
+          <div class="rep-item"><span>Listing Accuracy</span><div class="rep-bar"><div style="width:95%"></div></div><span>95%</span></div>
+          <div class="rep-item"><span>Response Rate</span><div class="rep-bar"><div style="width:79%"></div></div><span>79%</span></div>
+        </div>
+        <h3 class="section-title">Recent Reviews</h3>
+        <div class="reviews-list">
+          <div class="review"><strong>Asha Foundation</strong> ★★★★★ <p>"Food was fresh and well-packaged. Pickup was smooth."</p></div>
+          <div class="review"><strong>Care India NGO</strong> ★★★★☆ <p>"Great quantity. Slight delay in pickup area signage."</p></div>
+          <div class="review"><strong>Shelter Home Pune</strong> ★★★★★ <p>"Consistently reliable donor. Our go-to listing source!"</p></div>
+        </div>
+      </div>
+
+      <!-- DONOR: REPORT -->
+      <div id="donor-report" class="dash-section">
+        <h1>Monthly Impact Report 📊</h1>
+        <div class="report-summary">
+          <div class="report-card"><span>🍽️</span><strong>1,240</strong><span>Meals This Month</span></div>
+          <div class="report-card"><span>🌱</span><strong>620 kg</strong><span>CO₂ Prevented</span></div>
+          <div class="report-card"><span>👥</span><strong>310</strong><span>People Fed</span></div>
+          <div class="report-card"><span>💧</span><strong>3,720 L</strong><span>Water Saved</span></div>
+        </div>
+        <div class="chart-container">
+          <h3>Meals Donated Per Week (This Month)</h3>
+          <div class="bar-chart" id="donor-chart"></div>
+        </div>
+        <div class="certificate-banner">
+          🏆 You've earned the <strong>Green Hero Badge</strong> for this month!
+          <button class="btn-outline" onclick="alert('Certificate downloaded!')">Download Certificate</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- NGO DASHBOARD -->
+<div id="page-ngo" class="page">
+  <div class="dashboard-layout">
+    <aside class="sidebar ngo-sidebar">
+      <div class="sidebar-logo">🍱 HungerBridge</div>
+      <div class="sidebar-user">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop" alt="user">
+        <div>
+          <strong>Asha Foundation</strong>
+          <span class="role-tag ngo-tag">NGO</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" onclick="showNGOSection('ngo-home', this)">🏠 Live Feed</a>
+        <a href="#" class="nav-item" onclick="showNGOSection('ngo-claimed', this)">✅ My Claims</a>
+        <a href="#" class="nav-item" onclick="showNGOSection('ngo-map', this)">🗺️ Map View</a>
+        <a href="#" class="nav-item" onclick="showNGOSection('ngo-analytics', this)">📈 Analytics</a>
+      </nav>
+      <button class="sidebar-logout" onclick="showPage('page-landing')">← Logout</button>
+    </aside>
+
+    <main class="dashboard-main">
+      <!-- NGO: LIVE FEED -->
+      <div id="ngo-home" class="dash-section active-section">
+        <div class="dash-header">
+          <div>
+            <h1>Live Food Feed 🔴</h1>
+            <p>Showing available listings near <strong>Mumbai</strong></p>
+          </div>
+          <div class="filter-bar">
+            <select onchange="filterNGOListings(this.value)">
+              <option value="all">All Types</option>
+              <option value="meal">Cooked Meals</option>
+              <option value="snacks">Snacks</option>
+              <option value="packed">Packed Food</option>
+            </select>
+          </div>
+        </div>
+        <div class="live-pulse">🔴 LIVE — Updated 30 seconds ago</div>
+        <div class="listings-grid" id="ngo-live-listings"></div>
+      </div>
+
+      <!-- NGO: CLAIMED -->
+      <div id="ngo-claimed" class="dash-section">
+        <h1>My Claims ✅</h1>
+        <div class="tabs">
+          <button class="tab active">Active Pickups</button>
+          <button class="tab">Completed</button>
+          <button class="tab">Cancelled</button>
+        </div>
+        <div id="ngo-claimed-list" class="listings-grid"></div>
+      </div>
+
+      <!-- NGO: MAP -->
+      <div id="ngo-map" class="dash-section">
+        <h1>Map View 🗺️</h1>
+        <div class="map-placeholder">
+          <div class="map-mock">
+            <div class="map-bg">
+              <div class="map-pin pin1" title="Hotel Grandeur — 50 meals">📍<span>Hotel Grandeur<br>50 meals • 1h 20m</span></div>
+              <div class="map-pin pin2" title="Wedding Hall — 120 meals">📍<span>Wedding Hall<br>120 meals • 45m</span></div>
+              <div class="map-pin pin3" title="Canteen — 30 meals">📍<span>Canteen<br>30 meals • 1h 50m</span></div>
+              <div class="map-you">📍 You</div>
+              <div class="map-label">📍 Asha Foundation (You)</div>
+            </div>
+          </div>
+          <div class="map-list">
+            <h3>Nearby Listings</h3>
+            <div id="map-nearby-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NGO: ANALYTICS -->
+      <div id="ngo-analytics" class="dash-section">
+        <h1>NGO Analytics 📈</h1>
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-icon">🍱</div><div><span class="big-num">5,420</span><span>Total Meals Claimed</span></div></div>
+          <div class="stat-card"><div class="stat-icon">👥</div><div><span class="big-num">1,800</span><span>People Benefited</span></div></div>
+          <div class="stat-card"><div class="stat-icon">🏨</div><div><span class="big-num">23</span><span>Donor Partners</span></div></div>
+          <div class="stat-card"><div class="stat-icon">⚡</div><div><span class="big-num">94%</span><span>Claim Success Rate</span></div></div>
+        </div>
+        <div class="chart-container">
+          <h3>Weekly Meals Received</h3>
+          <div class="bar-chart" id="ngo-chart"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- VOLUNTEER DASHBOARD -->
+<div id="page-volunteer" class="page">
+  <div class="dashboard-layout">
+    <aside class="sidebar volunteer-sidebar">
+      <div class="sidebar-logo">🍱 HungerBridge</div>
+      <div class="sidebar-user">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop" alt="user">
+        <div>
+          <strong>Arjun Sharma</strong>
+          <span class="role-tag volunteer-tag">Volunteer</span>
+        </div>
+      </div>
+      <div class="availability-toggle">
+        <span>Available for Dispatch</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="avail-toggle" checked onchange="toggleAvailability(this)">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" onclick="showVolSection('vol-dispatch', this)">🔔 Dispatch Queue</a>
+        <a href="#" class="nav-item" onclick="showVolSection('vol-active', this)">🚴 Active Delivery</a>
+        <a href="#" class="nav-item" onclick="showVolSection('vol-history', this)">📜 History</a>
+        <a href="#" class="nav-item" onclick="showVolSection('vol-leaderboard', this)">🏆 Leaderboard</a>
+      </nav>
+      <button class="sidebar-logout" onclick="showPage('page-landing')">← Logout</button>
+    </aside>
+
+    <main class="dashboard-main">
+      <!-- VOL: DISPATCH -->
+      <div id="vol-dispatch" class="dash-section active-section">
+        <div class="dash-header">
+          <div>
+            <h1>Dispatch Queue 🔔</h1>
+            <p>Available delivery requests near you</p>
+          </div>
+          <div class="availability-status" id="avail-status">
+            <span class="status-dot green"></span> Available
+          </div>
+        </div>
+        <div id="dispatch-cards" class="dispatch-grid"></div>
+      </div>
+
+      <!-- VOL: ACTIVE DELIVERY -->
+      <div id="vol-active" class="dash-section">
+        <h1>Active Delivery 🚴</h1>
+        <div class="delivery-tracker" id="delivery-tracker">
+          <div class="delivery-progress">
+            <div class="progress-step done">
+              <div class="progress-dot"></div>
+              <div><strong>Dispatch Accepted</strong><span>10:32 AM</span></div>
+            </div>
+            <div class="progress-step done">
+              <div class="progress-dot"></div>
+              <div><strong>En Route to Pickup</strong><span>10:35 AM</span></div>
+            </div>
+            <div class="progress-step active">
+              <div class="progress-dot pulse"></div>
+              <div><strong>At Pickup Location</strong><span>Now</span></div>
+            </div>
+            <div class="progress-step">
+              <div class="progress-dot empty"></div>
+              <div><strong>En Route to NGO</strong><span>—</span></div>
+            </div>
+            <div class="progress-step">
+              <div class="progress-dot empty"></div>
+              <div><strong>Delivered</strong><span>—</span></div>
+            </div>
+          </div>
+          <div class="delivery-info-card">
+            <h3>Current Assignment</h3>
+            <div class="delivery-detail">
+              <div>📍 <strong>Pickup:</strong> Hotel Grandeur, Andheri West</div>
+              <div>🏠 <strong>Deliver to:</strong> Asha Foundation, Bandra</div>
+              <div>🍱 <strong>Items:</strong> Paneer Biryani — 50 servings</div>
+              <div>⏰ <strong>Deadline:</strong> <span class="urgent-time">35 minutes</span></div>
+            </div>
+            <button class="btn-primary" onclick="markDelivered()">✅ Mark as Delivered</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VOL: HISTORY -->
+      <div id="vol-history" class="dash-section">
+        <h1>Delivery History 📜</h1>
+        <div class="stat-cards">
+          <div class="stat-card"><div class="stat-icon">🚴</div><div><span class="big-num">67</span><span>Total Deliveries</span></div></div>
+          <div class="stat-card"><div class="stat-icon">🍱</div><div><span class="big-num">3,200</span><span>Meals Delivered</span></div></div>
+          <div class="stat-card"><div class="stat-icon">⭐</div><div><span class="big-num">4.9</span><span>Avg Rating</span></div></div>
+          <div class="stat-card"><div class="stat-icon">🕐</div><div><span class="big-num">98%</span><span>On-Time Rate</span></div></div>
+        </div>
+        <div id="vol-history-list" class="activity-list"></div>
+      </div>
+
+      <!-- VOL: LEADERBOARD -->
+      <div id="vol-leaderboard" class="dash-section">
+        <h1>Volunteer Leaderboard 🏆</h1>
+        <div class="leaderboard" id="leaderboard-list"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
